@@ -1,3 +1,4 @@
+"use client";
 import { useRef } from "react";
 import { personal, socials } from "../../data/index";
 import type { IconType } from "react-icons";
@@ -105,7 +106,7 @@ export default function About() {
                   <div className="about-spotlight" />
                   <div className="about-card-img relative overflow-hidden rounded-xl">
                     <img
-                      src={"/sequence/frame_00_delay-0.067s.webp"}
+                      src="/About_Img.webp"
                       alt={personal.name}
                       className="w-full object-cover object-top block"
                       style={{ aspectRatio: "4/5" }}
