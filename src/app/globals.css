@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #121212;
+  --color-foreground: #ffffff;
+}
+
+:root {
+  --background: #121212;
+  --foreground: #ffffff;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism utilities */
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  }
+}
+:root[data-theme='light'] {
+  --bg0: #ffffff;
+  --bg1: #f8fafc;
+  --bg2: #f1f5f9;
+  --bg3: #e2e8f0;
+  --border: #cbd5e1;
+  --text1: #0f172a;
+  --text2: #334155;
+  --text3: #64748b;
+  --accent: #6366f1;
+  --accent-h: #4f46e5;
+  --accent-glow: rgba(99,102,241,0.4);
+  --green: #10b981;
+  --font: 'Inter', sans-serif;
+  --mono: 'Fira Code', monospace;
+  --neu-in-sm: inset 2px 2px 5px rgba(0,0,0,0.05), inset -2px -2px 5px rgba(255,255,255,0.7);
+  --neu-out: 4px 4px 10px rgba(0,0,0,0.05), -4px -4px 10px rgba(255,255,255,0.7);
+}
+
+:root[data-theme='dark'] {
+  --bg0: #020617;
+  --bg1: #0f172a;
+  --bg2: #1e293b;
+  --bg3: #334155;
+  --border: #334155;
+  --text1: #f8fafc;
+  --text2: #cbd5e1;
+  --text3: #94a3b8;
+  --accent: #818cf8;
+  --accent-h: #a5b4fc;
+  --accent-glow: rgba(129,140,248,0.4);
+  --green: #34d399;
+  --font: 'Inter', sans-serif;
+  --mono: 'Fira Code', monospace;
+  --neu-in-sm: inset 2px 2px 5px rgba(0,0,0,0.4), inset -2px -2px 5px rgba(255,255,255,0.05);
+  --neu-out: 4px 4px 10px rgba(0,0,0,0.4), -4px -4px 10px rgba(255,255,255,0.05);
+}
+
+body {
+  background: var(--bg1);
+  color: var(--text1);
+}
