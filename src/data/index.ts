@@ -69,14 +69,8 @@ export const skillCategories = [
 
 export const projects = [
   {
-    id: 1, emoji: "👨", title: "Personal Portfolio", featured: true,
-    desc: "Personal portfolio showcasing projects, skills, and experience using React, responsive UI, modern styling, and smooth interactions.",
-    tech: ["JavaScript", "React.js", "Tailwind CSS", "Lucide React", "React Icons"],
-    github: "https://github.com/tripathipawan/My_Personal_Portfolio",
-    live: "https://pawantripathi.vercel.app/",
-    color: "#12c600",
-  },{
-    id: 2, emoji: "🤖", title: "Access Copilot", featured: true,
+    id: 1, emoji: "🤖", title: "Access Copilot", featured: true,
+    image: "/projects/accesscopilot.png",   // ✅ /public hata do
     desc: "AccessCopilot is an AI-powered web accessibility auditing tool.",
     tech: ["TypeScript", "Tailwind CSS", "React.js", "Framer Motion", "Redux Toolkit"],
     github: "https://github.com/tripathipawan/Accessibility_Copilot",
@@ -84,7 +78,17 @@ export const projects = [
     color: "#38bdf8",
   },
   {
+    id: 2, emoji: "🛍️", title: "Nova Shop", featured: true,
+    image: "/projects/novashop.png",
+    desc: "Modern e-commerce frontend with product listings, cart management, filter and sleek responsive design.",
+    tech: ["JavaScript", "React.js", "Tailwind CSS", "Context API", "Axios", "Lucide Icons", "Framer Motion"],
+    github: "https://github.com/tripathipawan/Nova_Shop/",
+    live: "https://knovashop.vercel.app/",
+    color: "#ffe000",
+  },
+  {
     id: 3, emoji: "🏥", title: "Doctor Appointment Booking App", featured: true,
+    image: "/projects/doctor.png",
     desc: "Doctor appointment booking with Firebase auth, real-time Firestore, light/dark mode, and fully responsive UI.",
     tech: ["JavaScript", "React.js", "Tailwind CSS", "Firebase", "Firestore", "Lucide Icons"],
     github: "https://github.com/tripathipawan/Doctor_Booking_App",
@@ -92,41 +96,24 @@ export const projects = [
     color: "#7510ff",
   },
   {
-    id: 4, emoji: "🛍️", title: "Nova Shop", featured: true,
-    desc: "Modern e-commerce frontend with product listings, cart management, filter and sleek responsive design.",
-    tech: ["JavaScript", "React.js", "Tailwind CSS", "Context API", "Axios", "Lucide Icons", "Framer Motion", "Slick-carousel", "Clerk"],
-    github: "https://github.com/tripathipawan/Nova_Shop/",
-    live: "https://knovashop.vercel.app/",
-    color: "#ffe000",
-  },
-
-  {
-    id: 5, emoji: "🌈", title: "Color Pallate website", featured: false,
-    desc: "Pixel-perfect Nike landing page with smooth animations and premium feel showcasing advanced Tailwind.",
+    id: 4, emoji: "🌈", title: "Color Palette Website", featured: false,
+    image: "/projects/colorpalette.png",
+    desc: "Color palette tool with smooth animations and premium feel showcasing advanced Tailwind.",
     tech: ["JavaScript", "React.js", "Tailwind CSS", "Framer Motion", "Lucide Icons"],
     github: "https://github.com/tripathipawan/Color_Picker_Website",
     live: "https://paletteflow-studio.vercel.app/",
     color: "#f43f5e",
   },
   {
-    id: 6, emoji: "👟", title: "Nike Landing Page", featured: false,
+    id: 5, emoji: "👟", title: "Nike Landing Page", featured: false,
+    image: "/projects/nike.png",
     desc: "Pixel-perfect Nike landing page with smooth animations and premium feel showcasing advanced Tailwind.",
     tech: ["JavaScript", "React.js", "Tailwind CSS", "Framer Motion", "Lucide Icons"],
     github: "https://github.com/tripathipawan/Nike",
     live: "https://nike-eta-beryl.vercel.app/",
     color: "#f59e0b",
-  },
-  {
-    id: 7, emoji: "📊", title: "Projects Showcase Website", featured: true,
-    desc: "Multiple Projects Showcase Website with responsive design and smooth animations.",
-    tech: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
-    github: "https://github.com/tripathipawan/",
-    live: "https://manyprojects.netlify.app/",
-    color: "#38bdf8",
-  },
-
+  }
 ]
-
 export const experience = [
   {
     id: 1,

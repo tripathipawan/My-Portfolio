@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion, MotionValue, useTransform } from "framer-motion";
-import { personal } from "@/data/portfolioData";
+import { personal } from "@/data/index";
 
 interface OverlayProps {
   scrollYProgress: MotionValue<number>;

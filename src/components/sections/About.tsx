@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import { useRef } from "react";
 import { personal, socials } from "../../data/index";
