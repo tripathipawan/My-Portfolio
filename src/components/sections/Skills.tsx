@@ -1,3 +1,4 @@
+"use client";
 import { useEffect } from "react";
 import { skillCategories } from "../../data/index";
 
@@ -151,3 +152,4 @@ export default function Skills() {
     </section>
   );
 }
+

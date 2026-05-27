@@ -1,3 +1,4 @@
+"use client";
 import { useEffect } from "react";
 import { experience } from "../../data/index";
 
@@ -196,3 +197,4 @@ export default function Experience() {
     </section>
   );
 }
+

@@ -11,6 +11,7 @@ import Certifications from "@/components/sections/Certifications";
 import Projects from "@/components/sections/Projects";
 import Contact from "@/components/sections/Contact";
 import Loader from "@/components/ui/Loader";
+import MarqueeBar from "@/components/ui/MarqueeBar";
 
 export default function Home() {
   const [ready, setReady] = useState(false);
@@ -22,12 +23,13 @@ export default function Home() {
       <main className="flex flex-col">
         {/* ScrollyCanvas acts as the Hero section at the top */}
         <ScrollyCanvas />
+        <MarqueeBar />
         <About />
+        <Skills />
+        <Projects />
         <Experience />
         <Education />
-        <Skills />
         <Certifications />
-        <Projects />
         <Contact />
       </main>
       <Footer />

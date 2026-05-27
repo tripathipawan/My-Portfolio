@@ -1,3 +1,4 @@
+"use client";
 import { useEffect } from "react";
 import { certifications } from "../../data/index";
 
@@ -23,7 +24,7 @@ function useReveal() {
 export default function Certifications() {
   useReveal();
   return (
-    <div id="certifications">
+    <div id="certifications" className="section-wrap">
       <style>{`
         .cert-rv { opacity:0; transform:translate3d(0,18px,0); transition:opacity 0.5s ease var(--cert-d,0ms),transform 0.5s ease var(--cert-d,0ms); will-change:opacity,transform; }
         .cert-rv.in { opacity:1; transform:translate3d(0,0,0); will-change:auto; }
@@ -129,3 +130,4 @@ export default function Certifications() {
     </div>
   );
 }
+

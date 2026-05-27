@@ -1,6 +1,6 @@
+"use client";
 import { useEffect } from "react";
 import { education } from "../../data/index";
-import Certifications from "./Certifications";
 
 const EDU_ICONS = ["🎓", "🏅", "📚"];
 
@@ -159,8 +159,8 @@ export default function Education() {
             </div>
           ))}
         </div>
-        <Certifications />
       </div>
     </section>
   );
 }
+

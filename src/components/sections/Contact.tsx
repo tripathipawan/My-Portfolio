@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect, useRef } from "react";
 import { useInView } from "../../hooks/index";
 import { personal } from "../../data/index";
@@ -364,6 +365,7 @@ export default function Contact() {
                     background:
                       "linear-gradient(135deg,var(--accent),var(--accent-h))",
                     boxShadow: "0 4px 22px var(--accent-glow)",
+                    border: "1.5px solid rgba(255,255,255,0.18)",
                     fontFamily: "var(--font)",
                   }}
                 >
@@ -377,3 +379,4 @@ export default function Contact() {
     </section>
   );
 }
+

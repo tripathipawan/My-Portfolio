@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { FiSun, FiMoon, FiMenu, FiX } from "react-icons/fi";
-import { useScrollY } from "../../hooks/index";
+
 import { useTheme } from "../../context/ThemeContext";
 
 const LINKS = [
@@ -44,11 +44,25 @@ function smoothScroll(id: string): void {
 }
 
 export default function Navbar({ ready }: { ready: boolean }) {
-  const scrollY = useScrollY();
   const active = useActiveSection();
   const { theme, toggle } = useTheme();
   const [open, setOpen] = useState(false);
-  const scrolled = scrollY > 50;
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const aboutEl = document.getElementById("about");
+      if (aboutEl) {
+        setScrolled(aboutEl.getBoundingClientRect().top <= 100);
+      } else {
+        setScrolled(window.scrollY > 50);
+      }
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const navBg = scrolled
     ? theme === "dark"
       ? "rgba(6,8,16,0.94)"

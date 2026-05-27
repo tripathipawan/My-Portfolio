@@ -1,3 +1,4 @@
+"use client";
 import { useEffect } from "react";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 import { projects } from "../../data/index";
@@ -200,3 +201,4 @@ export default function Projects() {
     </section>
   );
 }
+

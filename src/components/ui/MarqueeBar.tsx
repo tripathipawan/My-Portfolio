@@ -1,3 +1,4 @@
+"use client";
 import type { ElementType } from "react";
 import { FaReact, FaGitAlt, FaFire, FaCss3Alt, FaHtml5 } from "react-icons/fa";
 import {
@@ -23,14 +24,23 @@ const SKILLS = [
   { label: "GITHUB", Icon: SiGithub },
   { label: "FIREBASE", Icon: FaFire },
   { label: "JAVASCRIPT", Icon: SiJavascript },
-  { label: "CSS3", Icon: FaCss3Alt }, // ✅ SiCss3 → FaCss3Alt
-  { label: "HTML5", Icon: FaHtml5 }, // ✅ SiHtml5 → FaHtml5
+  { label: "CSS3", Icon: FaCss3Alt },
+  { label: "HTML5", Icon: FaHtml5 },
   { label: "GIT", Icon: FaGitAlt },
 ];
 
+function Dot() {
+  return (
+    <span
+      className="flex-shrink-0 w-1 h-1 rounded-full mx-1"
+      style={{ background: "var(--accent)", opacity: 0.4 }}
+    />
+  );
+}
+
 function Item({ label, Icon }: { label: string; Icon: ElementType }) {
   return (
-    <div className="flex items-center gap-2.5 px-6 flex-shrink-0">
+    <div className="flex items-center gap-2.5 px-5 flex-shrink-0">
       <span style={{ color: "var(--green)" }}>
         <Icon size={13} />
       </span>
@@ -40,19 +50,22 @@ function Item({ label, Icon }: { label: string; Icon: ElementType }) {
       >
         {label}
       </span>
+      <Dot />
     </div>
   );
 }
 
 export default function MarqueeBar() {
+  /* Duplicate twice → track is 2× width → translateX(-50%) = seamless loop */
   const doubled = [...SKILLS, ...SKILLS];
+
   return (
     <div
-      className="w-full py-3 border-y"
+      className="marquee-wrap w-full py-3 border-y"
       style={{
         borderColor: "var(--border)",
         background:
-          "linear-gradient(90deg,var(--bg0) 0%,var(--bg2) 50%,var(--bg0) 100%)",
+          "linear-gradient(90deg, var(--bg0) 0%, var(--bg2) 50%, var(--bg0) 100%)",
         overflow: "hidden",
       }}
     >
@@ -64,3 +77,4 @@ export default function MarqueeBar() {
     </div>
   );
 }
+

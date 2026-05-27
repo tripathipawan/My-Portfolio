@@ -12,6 +12,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: `${personal.name} | Creative Developer`,
   description: personal.bio,
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
