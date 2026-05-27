@@ -72,7 +72,7 @@ export const projects = [
     id: 1, emoji: "🤖", title: "Access Copilot", featured: true,
     image: "/projects/accesscopilot.png",   // ✅ /public hata do
     desc: "AccessCopilot is an AI-powered web accessibility auditing tool.",
-    tech: ["TypeScript", "Tailwind CSS", "React.js", "Framer Motion", "Redux Toolkit"],
+    tech: ["HTML", "CSS", "TypeScript", "Tailwind CSS", "React.js", "Framer Motion", "Redux Toolkit", "AI Intregration"],
     github: "https://github.com/tripathipawan/Accessibility_Copilot",
     live: "https://accesscopilot.vercel.app/",
     color: "#38bdf8",
@@ -81,7 +81,7 @@ export const projects = [
     id: 2, emoji: "🛍️", title: "Nova Shop", featured: true,
     image: "/projects/novashop.png",
     desc: "Modern e-commerce frontend with product listings, cart management, filter and sleek responsive design.",
-    tech: ["JavaScript", "React.js", "Tailwind CSS", "Context API", "Axios", "Lucide Icons", "Framer Motion"],
+    tech: ["JavaScript", "React.js", "Tailwind CSS", "Context API", "Axios", "Framer Motion"],
     github: "https://github.com/tripathipawan/Nova_Shop/",
     live: "https://knovashop.vercel.app/",
     color: "#ffe000",
