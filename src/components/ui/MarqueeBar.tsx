@@ -61,6 +61,7 @@ export default function MarqueeBar() {
 
   return (
     <div
+      id="marquee-bar"
       className="marquee-wrap w-full py-3 border-y"
       style={{
         borderColor: "var(--border)",

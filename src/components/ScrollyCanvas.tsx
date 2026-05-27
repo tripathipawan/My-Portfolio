@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
@@ -89,7 +90,7 @@ export default function ScrollyCanvas() {
     <div ref={containerRef} className="relative h-[500vh] w-full bg-[#121212]">
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full object-cover" />
-        
+
         {/* Loading overlay to prevent flashing */}
         {!isLoaded && (
           <div className="absolute inset-0 flex items-center justify-center bg-[#121212] text-white z-50">

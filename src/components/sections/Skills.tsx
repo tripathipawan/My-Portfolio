@@ -16,7 +16,8 @@ function useReveal() {
       (entries) => {
         entries.forEach((e) => {
           if (e.isIntersecting) {
-            e.target.classList.add("in");
+            (e.target as HTMLElement).style.opacity = "1";
+            (e.target as HTMLElement).style.transform = "translateY(0)";
             io.unobserve(e.target);
           }
         });
@@ -31,72 +32,100 @@ function useReveal() {
 function SkillCard({ cat, index }: { cat: SkillCategory; index: number }) {
   return (
     <div
-      className="sk-card rv rounded-2xl p-6 flex flex-col gap-5 relative overflow-hidden"
-      style={{ "--rv-d": `${index * 55}ms` } as React.CSSProperties}
+      className="sk-card relative flex flex-col gap-4 overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--bg2)] p-5 cursor-default transition-all duration-300"
+      style={{
+        opacity: 0,
+        transform: "translateY(32px)",
+        transition: `opacity 0.55s ease ${index * 60}ms, transform 0.55s ease ${index * 60}ms`,
+      }}
+      onMouseEnter={(e) => {
+        const el = e.currentTarget as HTMLElement;
+        el.style.transform = "translateY(-4px)";
+        el.style.borderColor = cat.color + "55";
+        el.style.boxShadow = `0 12px 40px ${cat.color}18, 0 2px 8px rgba(0,0,0,0.3)`;
+      }}
+      onMouseLeave={(e) => {
+        const el = e.currentTarget as HTMLElement;
+        el.style.transform = "translateY(0)";
+        el.style.borderColor = "var(--border)";
+        el.style.boxShadow = "none";
+      }}
     >
-      <style>{`
-        .sk-card { background:linear-gradient(145deg,var(--bg2),var(--bg3)); box-shadow:var(--neu-out); border:1px solid var(--border); }
-        .sk-card.in:hover { transform:translate3d(0,-6px,0) !important; }
-      `}</style>
-
+      {/* Top accent bar */}
       <div
-        className="absolute top-0 left-0 right-0 h-[3px] rounded-t-2xl"
+        className="absolute top-0 left-0 right-0 h-0.5"
         style={{
-          background: `linear-gradient(90deg,${cat.color},${cat.color}55)`,
+          background: `linear-gradient(90deg, ${cat.color} 0%, ${cat.color}00 80%)`,
         }}
       />
 
+      {/* Background glow */}
+      <div
+        className="pointer-events-none absolute -top-8 -right-5 h-24 w-24 rounded-full blur-xl"
+        style={{ background: cat.color + "0c" }}
+      />
+
+      {/* Header */}
       <div className="flex items-center gap-3 pt-1">
         <div
-          className="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
+          className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl text-lg"
           style={{
-            background: "linear-gradient(145deg,var(--bg3),var(--bg2))",
-            boxShadow: "var(--neu-in-sm)",
+            background: cat.color + "18",
+            border: `1px solid ${cat.color}30`,
           }}
         >
           {cat.icon}
         </div>
-        <div className="flex-1 min-w-0">
-          <h3
-            className="font-bold text-sm"
-            style={{ color: "var(--text1)", fontFamily: "var(--font)" }}
-          >
+
+        <div className="min-w-0 flex-1">
+          <h3 className="truncate text-sm font-bold text-[var(--text1)]">
             {cat.cat}
           </h3>
-          <div className="flex items-center gap-1.5 mt-1">
+          <div className="mt-1.5 flex items-center gap-1">
             <div
-              className="h-[2px] w-8 rounded-full"
+              className="h-0.5 w-6 rounded-full"
               style={{ background: cat.color }}
             />
             <div
-              className="h-[2px] w-4 rounded-full opacity-30"
-              style={{ background: cat.color }}
+              className="h-0.5 w-2.5 rounded-full"
+              style={{ background: cat.color + "44" }}
             />
           </div>
         </div>
+
         <span
-          className="ml-auto text-[10px] font-bold px-2.5 py-1 rounded-full flex-shrink-0"
+          className="flex-shrink-0 rounded-full px-2.5 py-0.5 text-[10px] font-bold font-mono tracking-wide"
           style={{
-            background: "linear-gradient(145deg,var(--bg3),var(--bg2))",
-            boxShadow: "var(--neu-in-sm)",
-            color: "var(--text2)",
-            border: "1px solid var(--border)",
+            color: cat.color,
+            background: cat.color + "15",
+            border: `1px solid ${cat.color}30`,
           }}
         >
           {cat.skills.length}
         </span>
       </div>
 
-      <div className="flex flex-wrap gap-2">
+      {/* Divider */}
+      <div className="h-px bg-[var(--border)]" />
+
+      {/* Skill pills */}
+      <div className="flex flex-wrap gap-1.5">
         {cat.skills.map((skill) => (
           <span
             key={skill}
-            className="skill-pill px-3 py-1.5 rounded-xl text-[11px] font-semibold select-none"
-            style={{
-              background: "linear-gradient(145deg,var(--bg3),var(--bg2))",
-              boxShadow: "var(--neu-in-sm)",
-              color: "var(--text2)",
-              border: "1px solid var(--border)",
+            className="cursor-default rounded-lg border border-[var(--border)] bg-[var(--bg3)] px-2.5 py-1 text-[11px] font-semibold text-[var(--text2)] transition-all duration-200 hover:border-current"
+            style={{ fontFamily: "var(--font)" }}
+            onMouseEnter={(e) => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.color = cat.color;
+              el.style.borderColor = cat.color + "50";
+              el.style.background = cat.color + "10";
+            }}
+            onMouseLeave={(e) => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.color = "var(--text2)";
+              el.style.borderColor = "var(--border)";
+              el.style.background = "var(--bg3)";
             }}
           >
             {skill}
@@ -109,41 +138,78 @@ function SkillCard({ cat, index }: { cat: SkillCategory; index: number }) {
 
 export default function Skills() {
   useReveal();
+  const totalSkills = skillCategories.reduce(
+    (sum, c) => sum + c.skills.length,
+    0,
+  );
+
   return (
-    <section
-      id="skills"
-      style={{ background: "var(--bg1)", overflow: "hidden" }}
-    >
+    <section id="skills" className="relative overflow-hidden bg-[var(--bg1)]">
+      {/* Decorative orbs */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-28 top-[10%] h-80 w-80 rounded-full bg-[var(--accent)] opacity-[0.04] blur-[80px]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-24 bottom-[15%] h-72 w-72 rounded-full bg-[var(--green)] opacity-[0.05] blur-[80px]"
+      />
+
       <div className="section-wrap">
-        <div className="mb-14">
+        {/* Section header */}
+        <div className="mb-10">
+          {/* Badge */}
           <div
-            className="flex items-center gap-2 text-xs font-bold tracking-[0.12em] uppercase mb-4"
-            style={{ color: "var(--accent-h)" }}
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--accent)] px-3.5 py-1 text-[11px] font-bold uppercase tracking-widest text-[var(--accent-h)]"
+            style={{ background: "var(--accent)" + "12" }}
           >
             <span
-              className="w-1.5 h-1.5 rounded-full"
-              style={{
-                background: "var(--accent)",
-                animation: "blink 2s ease infinite",
-              }}
+              className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--accent)]"
+              style={{ animation: "blink 2s ease infinite" }}
             />
             Technical Skills
           </div>
-          <h2
-            className="font-black leading-tight tracking-tight text-[clamp(2rem,4.5vw,3.2rem)]"
-            style={{ fontFamily: "var(--font)" }}
-          >
-            What I <span className="g-text">Work With</span>
-          </h2>
-          <p
-            className="mt-4 text-[0.95rem] leading-[1.85] max-w-[520px]"
-            style={{ color: "var(--text2)" }}
-          >
-            A comprehensive toolkit built through hands-on projects, continuous
-            learning, and real-world problem solving.
-          </p>
+
+          {/* Heading row — stacks on mobile */}
+          <div className="flex flex-wrap items-start justify-between gap-6">
+            <div
+              className="min-w-0 flex-1"
+              style={{ minWidth: "min(100%, 280px)" }}
+            >
+              <h2 className="mb-3 text-[clamp(1.7rem,4.5vw,3.2rem)] font-black leading-[1.1] tracking-tight text-[var(--text1)]">
+                What I <span className="g-text">Work With</span>
+              </h2>
+              <p className="max-w-md text-sm leading-relaxed text-[var(--text2)]">
+                A comprehensive toolkit built through hands-on projects,
+                continuous learning, and real-world problem solving.
+              </p>
+            </div>
+
+            {/* Stats */}
+            <div className="flex flex-shrink-0 items-center gap-5 pt-1">
+              <div className="text-center">
+                <div className="g-text text-3xl font-black leading-none">
+                  {totalSkills}+
+                </div>
+                <div className="mt-1 text-[10px] uppercase tracking-widest text-[var(--text3)]">
+                  Skills
+                </div>
+              </div>
+              <div className="h-10 w-px bg-[var(--border)]" />
+              <div className="text-center">
+                <div className="g-text text-3xl font-black leading-none">
+                  {skillCategories.length}
+                </div>
+                <div className="mt-1 text-[10px] uppercase tracking-widest text-[var(--text3)]">
+                  Categories
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+
+        {/* Cards grid — 1 col mobile, 2 col sm, 3 col lg */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {skillCategories.map((cat, i) => (
             <SkillCard key={cat.cat} cat={cat} index={i} />
           ))}
@@ -152,4 +218,3 @@ export default function Skills() {
     </section>
   );
 }
-

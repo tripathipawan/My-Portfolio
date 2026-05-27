@@ -170,4 +170,22 @@ export const certifications = [
     icon: "🏅",
     URL: "https://www.codechef.com/certificates/public/5292983",
   },
+  {
+    id: 2,
+    name: "CSS — Basic CSS",
+    platform: "Hacker Rank",
+    year: "2026",
+    color: "#f43f5e",
+    icon: "💥",
+    URL: "https://www.hackerrank.com/certificates/iframe/5d584d4e66be",
+  },
+  {
+    id: 3,
+    name: "JavaScript — Basic JavaScript",
+    platform: "Hacker Rank",
+    year: "2026",
+    color: "#ffe000",
+    icon: "🏅",
+    URL: "https://www.hackerrank.com/certificates/iframe/86163a7569e6",
+  },
 ]
