@@ -20,7 +20,6 @@ export default function Home() {
       <Loader onDone={() => setReady(true)} />
       <Navbar ready={ready} />
       <main className="flex flex-col">
-        {/* ScrollyCanvas acts as the Hero section at the top */}
         <ScrollyCanvas />
         <MarqueeBar />
         <About />

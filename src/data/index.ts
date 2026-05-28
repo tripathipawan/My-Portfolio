@@ -70,7 +70,7 @@ export const skillCategories = [
 export const projects = [
   {
     id: 1, emoji: "🤖", title: "Access Copilot", featured: true,
-    image: "/projects/accesscopilot.png",   // ✅ /public hata do
+    image: "/projects/accesscopilot.png",
     desc: "AccessCopilot is an AI-powered web accessibility auditing tool.",
     tech: ["HTML", "CSS", "TypeScript", "Tailwind CSS", "React.js", "Framer Motion", "Redux Toolkit", "AI Intregration"],
     github: "https://github.com/tripathipawan/Accessibility_Copilot",

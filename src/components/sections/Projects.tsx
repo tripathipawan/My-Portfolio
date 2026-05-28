@@ -311,23 +311,15 @@ function DesktopProjects() {
     offset: ["start start", "end end"],
   });
 
-  // section-wrap: max-w-[1180px] mx-auto px-6
-  // So left edge of content = max((vw - 1180) / 2, 24) px
-  const contentLeft = Math.max((vw - 1180) / 2, 24); // px
-  const contentLeftVw = (contentLeft / vw) * 100;     // convert to vw
+  const contentLeft = Math.max((vw - 1180) / 2, 24);
+  const contentLeftVw = (contentLeft / vw) * 100;
 
   // Card width in px
   const cardWpx = (CARD_W / 100) * vw;
   const cardGapPx = (CARD_GAP / 100) * vw;
 
-  // End X: CTA card left edge sits at contentLeft (same as header)
-  // So after scrolling, CTA starts at contentLeft px from left
-  // That means total shift = (projects.length) * (cardWpx + cardGapPx)
-  // endX = contentLeftVw - projects.length * (CARD_W + CARD_GAP)
   const endXVw = contentLeftVw - projects.length * (CARD_W + CARD_GAP);
 
-  // Container height: one 100vh per project card, CTA doesn't add extra
-  // But we only scroll to 100% progress when last card is reached
   const scrollHeight = projects.length * 100; // vh units
 
   const x = useTransform(

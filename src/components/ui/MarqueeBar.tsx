@@ -56,7 +56,6 @@ function Item({ label, Icon }: { label: string; Icon: ElementType }) {
 }
 
 export default function MarqueeBar() {
-  /* Duplicate twice → track is 2× width → translateX(-50%) = seamless loop */
   const doubled = [...SKILLS, ...SKILLS];
 
   return (

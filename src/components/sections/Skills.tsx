@@ -208,7 +208,6 @@ export default function Skills() {
           </div>
         </div>
 
-        {/* Cards grid — 1 col mobile, 2 col sm, 3 col lg */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {skillCategories.map((cat, i) => (
             <SkillCard key={cat.cat} cat={cat} index={i} />

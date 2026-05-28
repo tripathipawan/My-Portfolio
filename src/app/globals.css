@@ -28,7 +28,6 @@ body {
   }
 }
 
-/* ── LIGHT MODE — warm cream + deep navy ── */
 :root[data-theme='light'] {
   --bg0: #faf8f4;
   --bg1: #f4f1eb;
@@ -39,12 +38,9 @@ body {
   --text2: #3d2f22;
   --text3: #7a6a58;
   --accent: #c45c2a;
-  /* burnt orange — photo ka right side */
   --accent-h: #e07040;
-  /* lighter orange hover */
   --accent-glow: rgba(196, 92, 42, 0.35);
   --accent2: #2d3a6b;
-  /* deep navy — photo ka left side */
   --accent2-h: #3d4f8a;
   --green: #2e7d5e;
   --font: 'Inter', sans-serif;
@@ -53,11 +49,10 @@ body {
   --neu-out: 4px 4px 12px rgba(0, 0, 0, 0.08), -4px -4px 12px rgba(255, 255, 255, 0.6);
 }
 
-/* ── DARK MODE — deep navy + orange ember glow ── */
+
 :root[data-theme='dark'] {
   --bg0: #06080f;
   --bg1: #0a0d1a;
-  /* deepest navy — matches photo left */
   --bg2: #111827;
   --bg3: #1c2540;
   --border: #2a3555;
@@ -65,11 +60,9 @@ body {
   --text2: #c8bfb0;
   --text3: #7a7060;
   --accent: #e07840;
-  /* warm orange — matches photo right */
   --accent-h: #f08d55;
   --accent-glow: rgba(224, 120, 64, 0.4);
   --accent2: #5c72c8;
-  /* indigo-blue — matches photo left glow */
   --accent2-h: #7a8fe0;
   --green: #34d399;
   --font: 'Inter', sans-serif;
@@ -88,7 +81,6 @@ body {
     @apply max-w-[1180px] mx-auto px-6 py-20 md:py-28;
   }
 
-  /* gradient text — orange to indigo (matches photo) */
   .g-text {
     background: linear-gradient(135deg, var(--accent), var(--accent2));
     -webkit-background-clip: text;
@@ -111,7 +103,6 @@ body {
   }
 }
 
-/* ── Contact form fields ── */
 .field {
   width: 100%;
   padding: 0.75rem 1rem;
@@ -141,7 +132,6 @@ body {
   box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.2);
 }
 
-/* ── Blink ── */
 @keyframes blink {
 
   0%,
@@ -154,7 +144,6 @@ body {
   }
 }
 
-/* ── Marquee ── */
 @keyframes marquee {
   0% {
     transform: translateX(0);

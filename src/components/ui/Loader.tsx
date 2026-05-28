@@ -4,15 +4,6 @@ import { useState, useEffect } from "react";
 export default function Loader({ onDone }: { onDone: () => void }) {
   const [pct, setPct] = useState(0);
   const [show, setShow] = useState(true);
-  // const [msg, setMsg] = useState("Initializing...");
-
-  // const msgs = [
-  //   "Loading assets...",
-  //   "Setting up UI...",
-  //   "Almost ready...",
-  //   "Welcome!",
-  // ];
-
   useEffect(() => {
     const t1 = setTimeout(() => setPct(60), 100);
     const t2 = setTimeout(() => setPct(100), 350);
@@ -88,12 +79,6 @@ export default function Loader({ onDone }: { onDone: () => void }) {
           />
         </div>
         <div className="flex justify-between w-full">
-          {/* <span
-            className="text-[11px] tracking-widest uppercase"
-            style={{ color: "var(--text3)", fontFamily: "var(--mono)" }}
-          >
-            {msg}
-          </span> */}
           <span
             className="text-[11px] font-bold"
             style={{ color: "var(--accent-h)", fontFamily: "var(--mono)" }}
