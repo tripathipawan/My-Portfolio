@@ -1,6 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import { education } from "../../data/index";
+import Certifications from "./Certifications";
 
 const EDU_ICONS = ["🎓", "🏅", "📚"];
 
@@ -37,8 +38,8 @@ export default function Education() {
         .edu-rv.in:hover .edu-inner { transform:translate3d(4px,0,0); }
       `}</style>
 
-      <div className="section-wrap">
-        <div className="mb-14">
+      <div className="section-wrap !pb-10 md:!pb-12">
+        <div className="mb-4">
           <div
             className="flex items-center gap-2 text-xs font-bold tracking-[0.12em] uppercase mb-1"
             style={{ color: "var(--accent-h)" }}
@@ -64,7 +65,7 @@ export default function Education() {
           </p>
         </div>
 
-        <div className="relative flex flex-col gap-8 pl-14 sm:pl-16 mb-16">
+        <div className="relative flex flex-col gap-8 pl-14 sm:pl-16">
           <div
             className="absolute left-[22px] sm:left-[26px] top-0 bottom-0 w-[2px] rounded-full"
             style={{
@@ -160,6 +161,7 @@ export default function Education() {
           ))}
         </div>
       </div>
+      <Certifications/>
     </section>
   );
 }
